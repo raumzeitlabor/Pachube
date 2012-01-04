@@ -15,12 +15,13 @@ BEGIN {
  }
 }
 
-use File::Basename;
 use HTTP::Request;
 use HTTP::Response;
 use LWP::UserAgent;
 
-my %config = do dirname(__FILE__) . '/config.pl';
+# Configuration
+my $pachube_feed_uri = 'http://api.pachube.com/v2/feeds/42055';
+my $pachube_api_key = 'INSERT_PACHUBE_API_KEY';
 
 my $input;
 my @values;

@@ -15,20 +15,21 @@ BEGIN {
  }
 }
 
-use File::Basename;
 use HTTP::Request;
 use HTTP::Response;
 use LWP::UserAgent;
 
-my %config = do dirname(__FILE__) . '/config.pl';
+# Configuration
+my $pachube_feed_uri = 'http://api.pachube.com/v2/feeds/42055';
+my $pachube_api_key = 'INSERT_PACHUBE_API_KEY';
 
 my $input;
 my @values;
 my $timestamp = 0;
 my $output;
 
-my $req = HTTP::Request->new( 'PUT', $config{pachube_feed_uri} );
-$req->header( 'Content-Type' => 'application/json', 'X-PachubeApiKey' => $config{pachube_api_key} );
+my $req = HTTP::Request->new( 'PUT', $pachube_feed_uri );
+$req->header( 'Content-Type' => 'application/json', 'X-PachubeApiKey' => $pachube_api_key );
 my $lwp = LWP::UserAgent->new;
 my $response;
 
