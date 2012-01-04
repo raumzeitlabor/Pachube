@@ -2,7 +2,7 @@
 
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 DAEMON=/home/rzl/pachube/temperature.pl
-NAME=RzlTemperatureMon
+NAME=rzl-temperature-mon
 DESC="RZL Temperature Monitor"
 
 test -f $DAEMON || exit 0

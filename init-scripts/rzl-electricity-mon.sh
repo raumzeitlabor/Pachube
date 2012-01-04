@@ -2,7 +2,7 @@
 
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 DAEMON=/home/rzl/pachube/electricity.pl
-NAME=RzlElectricityMon
+NAME=rzl-electricity-mon
 DESC="RZL Electricity Monitor"
 
 test -f $DAEMON || exit 0

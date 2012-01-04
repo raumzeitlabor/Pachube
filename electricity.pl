@@ -1,11 +1,26 @@
 #!/usr/bin/perl -w
 
 use strict;
+
+BEGIN {
+ # Fork.
+ my $pidFile = '/var/run/rzl-electricity-mon.pid';
+ my $pid = fork;
+ if ($pid) # parent: save PID
+ {
+  open PIDFILE, ">$pidFile" or die "can't open $pidFile: $!\n";
+  print PIDFILE $pid;
+  close PIDFILE;
+  exit 0;
+ }
+}
+
+use File::Basename;
 use HTTP::Request;
 use HTTP::Response;
 use LWP::UserAgent;
 
-my %config = do 'config.pl';
+my %config = do dirname(__FILE__) . '/config.pl';
 
 my $input;
 my @values;
@@ -14,7 +29,7 @@ my $output;
 my $power;
 
 my $req = HTTP::Request->new( 'PUT', $config{pachube_feed_uri} );
-$req->header( 'Content-Type' => 'application/json', 'X-PachubeApiKey' => $confit{pachube_api_key} );
+$req->header( 'Content-Type' => 'application/json', 'X-PachubeApiKey' => $config{pachube_api_key} );
 my $lwp = LWP::UserAgent->new;
 my $response;
 
