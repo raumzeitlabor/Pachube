@@ -29,8 +29,8 @@ my $timestamp = 0;
 my $output;
 my $power;
 
-my $req = HTTP::Request->new( 'PUT', $config{pachube_feed_uri} );
-$req->header( 'Content-Type' => 'application/json', 'X-PachubeApiKey' => $config{pachube_api_key} );
+my $req = HTTP::Request->new( 'PUT', $pachube_feed_uri );
+$req->header( 'Content-Type' => 'application/json', 'X-PachubeApiKey' => $pachube_api_key );
 my $lwp = LWP::UserAgent->new;
 my $response;
 
