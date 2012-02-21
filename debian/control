@@ -1,0 +1,17 @@
+Source: electricity-pachube
+Section: perl
+Priority: optional
+Maintainer: Michael Stapelberg <michael@stapelberg.de>
+Build-Depends: debhelper (>= 8)
+Build-Depends-Indep: perl
+Standards-Version: 3.9.2
+Homepage: http://search.cpan.org/dist/ElectricityPachube/
+
+Package: electricity-pachube
+Architecture: all
+Depends: ${misc:Depends}, ${perl:Depends}
+Description: pushes electricity values to pachube
+ ElectricityPachube reads electricity usage from the blackbox and pushes them
+ to pachube.
+ .
+ This description was automagically extracted from the module by dh-make-perl.
